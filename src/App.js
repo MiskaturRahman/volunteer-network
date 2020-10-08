@@ -44,7 +44,9 @@ function App() {
             <User />
           </PrivateRoute>
 
-
+          <Route exact path='/'>
+            <Home />
+          </Route>
 
 
 
