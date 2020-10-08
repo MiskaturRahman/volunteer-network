@@ -12,8 +12,7 @@ const Login = () => {
     const [user, setUser] = useState({
         isSignedIn: false,
         name: '',
-        email: '',
-        photo: ''
+        email: ''
     })
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -26,12 +25,12 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         firebase.auth().signInWithPopup(provider)
             .then(result => {
-                const { displayName, photoURL, email } = result.user;
+                const { displayName, email } = result.user;
                 const signedInUser = {
                     isSignedIn: true,
                     name: displayName,
-                    email: email,
-                    photo: photoURL
+                    email: email
+
                 }
                 setUser(signedInUser);
                 setLoggedInUser(signedInUser);
@@ -49,8 +48,7 @@ const Login = () => {
                 const signedOutUser = {
                     isSignedIn: false,
                     name: '',
-                    email: '',
-                    photo: ''
+                    email: ''
                 }
 
                 setUser(signedOutUser);

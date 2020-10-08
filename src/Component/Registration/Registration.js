@@ -10,7 +10,7 @@ const Registration = () => {
     const { register, handleSubmit, watch, errors } = useForm();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const onSubmit = data => {
-        const registrationDetail = { ...loggedInUser, program: data, orderTime: new Date() }
+        const registrationDetail = { ...loggedInUser, data, orderTime: new Date() }
 
         fetch('http://localhost:5500/programRegistration', {
             method: 'POST',

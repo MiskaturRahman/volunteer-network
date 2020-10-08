@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { UserContext } from '../../App';
 
 const RegistrationDone = () => {
     const [registrationList, setRegistrationList] = useState([]);
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     useEffect(() => {
-        fetch('http://localhost:5500/registrationHistory')
+        fetch('http://localhost:5500/registrationHistory?email=' + loggedInUser.email)
             .then(response => response.json())
             .then(data => setRegistrationList(data));
     }, [])
@@ -15,7 +17,7 @@ const RegistrationDone = () => {
                 registrationList.map(
                     registration =>
                         <li>Name: <b>{registration.name}</b> Your Email: <b>{registration.email}</b>
-                        Registered Program:<b>{registration.program.activity}</b>
+                        Registered Program:<b>{registration.data.activity}</b>
                         </li>
                 )
             }
