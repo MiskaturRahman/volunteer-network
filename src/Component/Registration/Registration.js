@@ -12,7 +12,7 @@ const Registration = () => {
     const onSubmit = data => {
         const registrationDetail = { ...loggedInUser, data, orderTime: new Date() }
 
-        fetch('http://localhost:5500/programRegistration', {
+        fetch('https://afternoon-falls-65079.herokuapp.com/programRegistration', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(registrationDetail)

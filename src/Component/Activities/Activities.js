@@ -13,7 +13,7 @@ const Activities = ({ activity }) => {
 
         <div id="cards_landscape_wrap-2">
 
-            <Link to={`/registration`}>
+            <Link to={`/registration/${activity.title}`}>
                 <div className="col-md-3" className="card card-flyer" style={{ width: '16rem', margin: '30px', }}>
                     <img className="image-box" src={require(`../../images/${activity.image}`)} class="card-img-top" alt="..." />
                     <div class="card-body">

@@ -5,7 +5,7 @@ const RegistrationDone = () => {
     const [registrationList, setRegistrationList] = useState([]);
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     useEffect(() => {
-        fetch('http://localhost:5500/registrationHistory?email=' + loggedInUser.email)
+        fetch('https://afternoon-falls-65079.herokuapp.com/registrationHistory?email=' + loggedInUser.email)
             .then(response => response.json())
             .then(data => setRegistrationList(data));
     }, [])
